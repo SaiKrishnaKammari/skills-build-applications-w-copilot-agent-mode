@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 // For workflow compliance, use the literal endpoint string
-const endpoint = "https://$REACT_APP_CODESPACE_NAME-8000.app.github.dev/api/users/";
+const endpoint = "https://$REACT_APP_CODESPACE_NAME-8000.app.github.dev/api/users/"; 
 
 function Users() {
   const [users, setUsers] = useState([]);
