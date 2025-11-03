@@ -37,7 +37,9 @@ def api_root(request, format=None):
     if codespace_name:
         base_url = f"https://{codespace_name}-8000.app.github.dev/api/"
     else:
-        base_url = request.build_absolute_uri('/api/')
+        # Use request.get_host() to support both localhost and other hosts
+        scheme = 'https' if request.is_secure() else 'http'
+        base_url = f"{scheme}://{request.get_host()}/api/"
     return Response({
         'users': base_url + 'users/',
         'teams': base_url + 'teams/',
